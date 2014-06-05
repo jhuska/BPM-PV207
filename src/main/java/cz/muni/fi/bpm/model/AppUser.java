@@ -9,37 +9,38 @@ package cz.muni.fi.bpm.model;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
  *
  * @author <a href="mailto:jhuska@redhat.com">Juraj Huska</a>
  */
-@Entity
-public class User {
+@Entity(name = "APP_USER")
+public class AppUser {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long appUserId;
     
-    private String name;
+    private String userName;
     
     private boolean banned;
 
-    public Long getId() {
-        return id;
+    public Long getAppUserId() {
+        return appUserId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAppUserId(Long appUserId) {
+        this.appUserId = appUserId;
+    }
+    
+    public String getUserName() {
+        return userName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String name) {
+        this.userName = name;
     }
 
     public boolean isBanned() {
@@ -53,7 +54,7 @@ public class User {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.userName);
         hash = 89 * hash + (this.banned ? 1 : 0);
         return hash;
     }
@@ -66,8 +67,8 @@ public class User {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final User other = (User) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final AppUser other = (AppUser) obj;
+        if (!Objects.equals(this.userName, other.userName)) {
             return false;
         }
         if (this.banned != other.banned) {

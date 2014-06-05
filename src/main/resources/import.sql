@@ -6,10 +6,13 @@
 --insert into EVENT (kind, name, description, startOfEvent, endOfEvent, createdToSystem, featured, mediaItem_id) values ('SINGLE_EVENT', 'DnB Fléda', 'Najlepší DnB DJs z Česka a Slovenska', DATE '2013-04-12', DATE '2013-05-12', DATE '2011-05-12', false, 8);
 
 --1
-insert into USER (name, banned) values ('Jozef Spišiak', false);
+insert into APP_USER (userName, banned) values ('Jozef Spisiak', false);
 --2
-insert into USER (name, banned) values ('Milan Rastislav Štefánik', false);
+insert into APP_USER (userName, banned) values ('Milan Rastislav Stefanik', false);
 --3
-insert into USER (name, banned) values ('Miriam Chytilová', false);
+insert into APP_USER (userName, banned) values ('Miriam Chytilova', false);
 --4
-insert into USER (name, banned) values ('Janka Hospodárová', false);
+insert into APP_USER (userName, banned) values ('Janka Hospodarova', false);
+
+--1
+insert into BILL (appUserId, forWhat, created) values (1, 'Playstation 4', DATE '2014-09-12');

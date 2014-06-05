@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head><title>BPM REST Services Sandbox</title></head>
+<body>
+<h1>BPM REST Services Sandbox</h1>
+ <form>
+    <fieldset>
+        <label for="number" id="number_label">Cislo uzivatela</label>
+        <input name="number" id="number" type="text"/> </br>
+        
+        <label for="forWhat" id="forWhat_label">Co si uzivatel kupil</label>
+        <input name="forWhat" id="forWhat" type="text"/> </br>
+        
+        <label for="numberBill" id="numberBill_label">Cislo blocku</label>
+        <input name="numberBill" id="numberBill" type="text"/> </br>
+        
+        <input type="submit" id="foundOutInfo" value="Ziskaj info o uzivatelovi!" />
+        <input type="submit" id="banUser" value="Zabanuj uzivatela!" />
+        <input type="submit" id="createBill" value="Sprav blocek!" />
+        <input type="submit" id="foundOutInfoBill" value="Ziskaj info o blociku!" />
+    </fieldset>
+  </form>
+ <span id="result"></span>
+ <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+ <script type="text/javascript" src="js/sanbox.js"></script>
+</body>
+</html>
