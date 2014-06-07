@@ -17,7 +17,7 @@ public class DeliveryService {
     
     @GET
     @Path("/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public boolean isOrderDelivered(@PathParam("id") long orderId) {
         return false;
     }
