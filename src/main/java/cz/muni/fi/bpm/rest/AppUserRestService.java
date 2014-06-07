@@ -26,7 +26,7 @@ public class AppUserRestService {
     
     @GET
     @Path("/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public AppUser lookupUser(@PathParam("id") long id) {
         AppUser user = userManager.getUser(id);
         if(user == null) {
@@ -37,9 +37,24 @@ public class AppUserRestService {
     
     @PUT
     @Path("/ban/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public Response banUser(@PathParam("id") long id) {
         userManager.banUser(id);
         return Response.ok().build();
     }
+    
+    @GET
+    @Path("/isBanned/{id:[0-9][0-9]*}")
+    @Produces(MediaType.APPLICATION_XML)
+    public boolean isAppUserBanned(@PathParam("id") long id) {
+        return false;
+    }
+    
+    @GET
+    @Path("/hasViolations/{id:[0-9][0-9]*}")
+    @Produces(MediaType.APPLICATION_XML)
+    public boolean hasAppUserViolations(@PathParam("id") long id) {
+        return false;
+    }
+    
 }
