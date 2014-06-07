@@ -38,7 +38,7 @@ public class AppUserRestService {
     @PUT
     @Path("/ban/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_XML)
-    public Response banUser(@PathParam("id") long id) {
+    public Response banUser(@PathParam("id") long id, String reason) {
         userManager.banUser(id);
         return Response.ok().build();
     }
@@ -55,6 +55,13 @@ public class AppUserRestService {
     @Produces(MediaType.APPLICATION_XML)
     public boolean hasAppUserViolations(@PathParam("id") long id) {
         return false;
+    }
+    
+    @PUT
+    @Path("/addViolation/{id:[0-9][0-9]*}")
+    @Produces(MediaType.APPLICATION_XML)
+    public Response addViolation(@PathParam("id") long id, String reason) {
+        return Response.ok().build();
     }
     
 }
