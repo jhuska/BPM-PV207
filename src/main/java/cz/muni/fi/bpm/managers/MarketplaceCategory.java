@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "category")
+@XmlRootElement(name = "CategoryId")
 @XmlEnum
 public enum MarketplaceCategory {
 

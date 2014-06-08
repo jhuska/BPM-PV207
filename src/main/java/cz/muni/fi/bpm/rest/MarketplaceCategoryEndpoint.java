@@ -1,6 +1,7 @@
 package cz.muni.fi.bpm.rest;
 
 import cz.muni.fi.bpm.managers.CategoryService;
+import cz.muni.fi.bpm.managers.MarketplaceCategory;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -51,15 +52,38 @@ public class MarketplaceCategoryEndpoint {
 
     }
 
+    @XmlRootElement(name = "category")
+    @XmlAccessorType(XmlAccessType.FIELD)
+    public static class CategoryResponse {
+
+        @XmlElement
+        private MarketplaceCategory categoryId;
+
+        public CategoryResponse() {
+        }
+        
+        public CategoryResponse(MarketplaceCategory categoryId) {
+            this.categoryId = categoryId;
+        }
+        
+        public MarketplaceCategory getCategoryId() {
+            return categoryId;
+        }
+
+        public void setCategoryId(MarketplaceCategory categoryId) {
+            this.categoryId = categoryId;
+        }
+    }
+    
     @Inject
     private CategoryService service;
 
     @PUT
     @Path("/suggest")
-    @Produces(MediaType.APPLICATION_XML)
-    @Consumes(MediaType.APPLICATION_XML)
+    @Produces(MediaType.TEXT_XML)
+    @Consumes(MediaType.TEXT_XML)
     public Response suggestCategory(CategoryRequest request) {
-        return Response.ok(service.suggestCategory(request.getTitle(), request.getDescription())).build();
+        return Response.ok(new CategoryResponse(service.suggestCategory(request.getTitle(), request.getDescription()))).build();
     }
 
 }

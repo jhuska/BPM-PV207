@@ -92,8 +92,8 @@ public class CardRestService {
 
     @PUT
     @Path("/isValid")
-    @Produces(MediaType.APPLICATION_XML)
-    @Consumes(MediaType.APPLICATION_XML)
+    @Produces(MediaType.TEXT_XML)
+    @Consumes(MediaType.TEXT_XML)
     public CardResponse isCardValid(CardRequest req) {
 
         // validate the passed parameters using Bean Validation

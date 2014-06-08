@@ -18,24 +18,24 @@ import javax.xml.bind.annotation.XmlValue;
 public class DeliveryService {
 
     @XmlRootElement
-    public static class OrderDelivered {
+    public static class DeliveryResponse {
 
         @XmlValue
         public boolean delivered;
 
-        public OrderDelivered() {
+        public DeliveryResponse() {
         }
 
-        public OrderDelivered(boolean valid) {
+        public DeliveryResponse(boolean valid) {
             this.delivered = valid;
         }
     }
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_XML)
-    public OrderDelivered isOrderDelivered(@PathParam("id") long orderId) {
-        return new OrderDelivered(orderId % 2 == 0);
+    @Produces(MediaType.TEXT_XML)
+    public DeliveryResponse isOrderDelivered(@PathParam("id") long orderId) {
+        return new DeliveryResponse(orderId % 2 == 0);
     }
 
 }
