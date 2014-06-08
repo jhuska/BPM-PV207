@@ -1,4 +1,4 @@
-package cz.muni.fi.bpm.managers;
+package cz.muni.fi.bpm.services;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;

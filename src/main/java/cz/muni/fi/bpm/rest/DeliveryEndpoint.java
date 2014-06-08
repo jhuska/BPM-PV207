@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @Path("/delivery")
 @RequestScoped
-public class DeliveryService {
+public class DeliveryEndpoint {
 
     @XmlRootElement
     public static class DeliveryResponse {

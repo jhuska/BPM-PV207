@@ -1,7 +1,7 @@
 package cz.muni.fi.bpm.rest;
 
-import cz.muni.fi.bpm.managers.CategoryService;
-import cz.muni.fi.bpm.managers.MarketplaceCategory;
+import cz.muni.fi.bpm.services.CategoryService;
+import cz.muni.fi.bpm.services.MarketplaceCategory;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

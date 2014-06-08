@@ -1,6 +1,6 @@
 package cz.muni.fi.bpm.rest;
 
-import cz.muni.fi.bpm.managers.AppUserManager;
+import cz.muni.fi.bpm.services.AppUserService;
 import cz.muni.fi.bpm.model.AppUser;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -20,10 +20,10 @@ import javax.ws.rs.core.Response;
  */
 @Path("/user")
 @RequestScoped
-public class AppUserRestService {
+public class AppUserEndpoint {
     
     @Inject
-    private AppUserManager userManager;
+    private AppUserService userManager;
     
     @GET
     @Path("/{id:[0-9][0-9]*}")

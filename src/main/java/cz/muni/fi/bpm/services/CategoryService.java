@@ -1,4 +1,4 @@
-package cz.muni.fi.bpm.managers;
+package cz.muni.fi.bpm.services;
 
 import java.util.Arrays;
 import java.util.List;

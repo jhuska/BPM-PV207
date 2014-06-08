@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.muni.fi.bpm.managers;
+package cz.muni.fi.bpm.services;
 
 import cz.muni.fi.bpm.model.Bill;
 import java.util.Date;
@@ -16,13 +16,13 @@ import javax.persistence.EntityManager;
  * @author jhuska
  */
 @Stateful
-public class BillManager {
+public class BillService {
 
     @Inject
     private EntityManager em;
     
     @Inject
-    private AppUserManager userManager;
+    private AppUserService userManager;
     
     public void createBill(Bill bill) {
         bill.setCreated(new Date());

@@ -1,4 +1,4 @@
-package cz.muni.fi.bpm.managers;
+package cz.muni.fi.bpm.services;
 
 import cz.muni.fi.bpm.model.AppUser;
 import javax.ejb.Stateful;
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 
 
 @Stateful
-public class AppUserManager {
+public class AppUserService {
 
     @Inject
     private EntityManager em;

@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @Path("/card")
 @RequestScoped
-public class CardRestService {
+public class CardEndpoint {
 
     @XmlRootElement
     @XmlAccessorType(XmlAccessType.FIELD)
