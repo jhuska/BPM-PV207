@@ -6,6 +6,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
 
 /**
  *
@@ -14,12 +16,26 @@ import javax.ws.rs.core.MediaType;
 @Path("/delivery")
 @RequestScoped
 public class DeliveryService {
-    
+
+    @XmlRootElement
+    public static class DeliveryResponse {
+
+        @XmlValue
+        public boolean delivered;
+
+        public DeliveryResponse() {
+        }
+
+        public DeliveryResponse(boolean valid) {
+            this.delivered = valid;
+        }
+    }
+
     @GET
     @Path("/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public boolean isOrderDelivered(@PathParam("id") long orderId) {
-        return false;
+    @Produces(MediaType.TEXT_XML)
+    public DeliveryResponse isOrderDelivered(@PathParam("id") long orderId) {
+        return new DeliveryResponse(orderId % 2 == 0);
     }
-    
+
 }

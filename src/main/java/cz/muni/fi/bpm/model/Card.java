@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.muni.fi.bpm.model;
 
-import java.util.Date;
 import java.util.Objects;
+import javax.validation.constraints.Pattern;
 
 /**
  *
@@ -14,11 +9,27 @@ import java.util.Objects;
  */
 public class Card {
 
+    @Pattern(regexp = "[0-9]{16}")
     private String cardNumber;
 
-    private Date validTill;
+    @Pattern(regexp = "[0-9]{3}")
+    private String cvv;
 
-    private String csvNumber;
+    @Pattern(regexp = "0[1-9]|1[0-2]")
+    private String validityMonth;
+
+    @Pattern(regexp = "20[0-9]{2}")
+    private String validityYear;
+
+    public Card(String cardNumber, String cvv, String validityMonth, String validityYear) {
+        this.cardNumber = cardNumber;
+        this.cvv = cvv;
+        this.validityMonth = validityMonth;
+        this.validityYear = validityYear;
+    }
+
+    public Card() {
+    }
 
     public String getCardNumber() {
         return cardNumber;
@@ -28,28 +39,37 @@ public class Card {
         this.cardNumber = cardNumber;
     }
 
-    public Date getValidTill() {
-        return validTill;
+    public String getCvv() {
+        return cvv;
     }
 
-    public void setValidTill(Date validTill) {
-        this.validTill = validTill;
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
     }
 
-    public String getCsvNumber() {
-        return csvNumber;
+    public String getValidityMonth() {
+        return validityMonth;
     }
 
-    public void setCsvNumber(String csvNumber) {
-        this.csvNumber = csvNumber;
+    public void setValidityMonth(String validityMonth) {
+        this.validityMonth = validityMonth;
+    }
+
+    public String getValidityYear() {
+        return validityYear;
+    }
+
+    public void setValidityYear(String validityYear) {
+        this.validityYear = validityYear;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.cardNumber);
-        hash = 97 * hash + Objects.hashCode(this.validTill);
-        hash = 97 * hash + Objects.hashCode(this.csvNumber);
+        hash = 97 * hash + Objects.hashCode(this.cvv);
+        hash = 97 * hash + Objects.hashCode(this.validityMonth);
+        hash = 97 * hash + Objects.hashCode(this.validityYear);
         return hash;
     }
 
@@ -65,10 +85,13 @@ public class Card {
         if (!Objects.equals(this.cardNumber, other.cardNumber)) {
             return false;
         }
-        if (!Objects.equals(this.validTill, other.validTill)) {
+        if (!Objects.equals(this.cvv, other.cvv)) {
             return false;
         }
-        if (!Objects.equals(this.csvNumber, other.csvNumber)) {
+        if (!Objects.equals(this.validityMonth, other.validityMonth)) {
+            return false;
+        }
+        if (!Objects.equals(this.validityYear, other.validityYear)) {
             return false;
         }
         return true;

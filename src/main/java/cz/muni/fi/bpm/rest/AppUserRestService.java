@@ -4,6 +4,7 @@ import cz.muni.fi.bpm.managers.AppUserManager;
 import cz.muni.fi.bpm.model.AppUser;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -17,7 +18,7 @@ import javax.ws.rs.core.Response;
  *
  * @author <a href="mailto:jhuska@redhat.com">Juraj Huska</a>
  */
-@Path("/users")
+@Path("/user")
 @RequestScoped
 public class AppUserRestService {
     
@@ -38,7 +39,7 @@ public class AppUserRestService {
     @PUT
     @Path("/ban/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_XML)
-    public Response banUser(@PathParam("id") long id, String reason) {
+    public Response banUser(@PathParam("id") long id, @FormParam("reason") String reason) {
         userManager.banUser(id);
         return Response.ok().build();
     }
@@ -60,7 +61,7 @@ public class AppUserRestService {
     @PUT
     @Path("/addViolation/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_XML)
-    public Response addViolation(@PathParam("id") long id, String reason) {
+    public Response addViolation(@PathParam("id") long id, @FormParam("reason") String reason) {
         return Response.ok().build();
     }
     
