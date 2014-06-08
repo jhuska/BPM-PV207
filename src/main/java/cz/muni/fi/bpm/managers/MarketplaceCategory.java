@@ -1,16 +1,19 @@
 package cz.muni.fi.bpm.managers;
 
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "category")
+@XmlEnum
 public enum MarketplaceCategory {
 
-    ELECTRONICS (1, new String[]{"camera", "notebook", "computer", "netbook", "smartphone", "turing"}),
-    FURNITURE   (2, new String[]{"chair", "table", "desk", "sofa", "couch", "cabinet", "shelf"}),
-    CARS        (3, new String[]{"car", "coupe", "hatchback", "sedan", "brake", "wheel", "velorex"}),
-    CLOTHES     (4, new String[]{"shirt", "skirt", "sweater", "trousers", "jumper", "jacket", "poncho"}),
-    SPORT       (5, new String[]{"skis", "bike", "bicycle", "snowboard", "javelin"}),
-    OTHER       (6, new String[]{""});
+    @XmlEnumValue("1") ELECTRONICS (1, new String[]{"camera", "notebook", "computer", "netbook", "smartphone", "turing"}),
+    @XmlEnumValue("2") FURNITURE   (2, new String[]{"chair", "table", "desk", "sofa", "couch", "cabinet", "shelf"}),
+    @XmlEnumValue("3") CARS        (3, new String[]{"car", "coupe", "hatchback", "sedan", "brake", "wheel", "velorex"}),
+    @XmlEnumValue("4") CLOTHES     (4, new String[]{"shirt", "skirt", "sweater", "trousers", "jumper", "jacket", "poncho"}),
+    @XmlEnumValue("5") SPORT       (5, new String[]{"skis", "bike", "bicycle", "snowboard", "javelin"}),
+    @XmlEnumValue("6") OTHER       (6, new String[]{""});
     
     private final int id;
     
